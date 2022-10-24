@@ -1,0 +1,31 @@
+.nav{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color:black;
+    color: white;
+}
+.heading{
+    margin-left:14px;
+}
+.list>ul{
+    display:flex;
+   
+}
+.list>ul>li{
+    display:flex;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(69, 69, 129);
+    margin: 0 8px;
+    
+}
+.list>ul>li>a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    font-weight: bold;
+
+}
