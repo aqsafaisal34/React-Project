@@ -6,14 +6,14 @@ function Product() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-
+  
   const [users, setUsers] = useState([]);
   const [toggleRefresh, setToggleRefresh] = useState(true);
 
   useEffect(() => {
     let getAllUsers = async () => {
       let response = await axios.get(
-        "http://localhost:5003/products"
+        "http://localhost:5001/products"
       );
 
       setUsers(response.data.data);
@@ -37,7 +37,7 @@ function Product() {
 
     axios({
       method: "post",
-      url: "http://localhost:5003/product",
+      url: "http://localhost:5001/product",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
@@ -50,6 +50,9 @@ function Product() {
         console.log(err);
       });
   };
+
+
+ 
 
   return (
     <div>
@@ -107,19 +110,40 @@ function Product() {
         </form>
       </div>
 
+      
+
       <h1>Products List: </h1>
 
-      <div className="productlist">
-        {users.map((eachUser) => (
-          <div key={eachUser.id}>
-            <div className="product">
-              <img width="150px" src={eachUser.productimage} alt="" />
-              <h2 className="name">{eachUser.name}</h2>
-              <p className="description">{eachUser.description}</p>
-              <p>
-                <span className="price">{eachUser.price}</span>
-                <span>PKR</span>
-              </p>
+      <div className='productlist'>
+        {users.map(eachProduct => (
+          <div key={eachProduct.id}>
+            <div className='product'>
+              <img className="productimg" width="120px" src={eachProduct.productimage} alt="" />
+              <h4>{eachProduct.name}</h4>
+              <p className='description'>{eachProduct.description}</p>
+              <p ><span className='price'>{eachProduct.price}</span><span>pkr</span></p>
+              <button onClick={() => {
+                axios({
+                 url: `http://localhost:5001/product/${eachProduct._id}`,
+                   
+                  method: "delete",
+
+                })
+                  .then(function (response) {
+                    console.log(response.data)
+                    setToggleRefresh(!toggleRefresh)
+                  })
+                  .catch(function (error) {
+                    console.log('error', error)
+                  })
+
+
+
+              }
+
+              }>delete</button> 
+                
+              
             </div>
           </div>
         ))}
