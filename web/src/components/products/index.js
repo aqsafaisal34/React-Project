@@ -13,7 +13,7 @@ function Product() {
   useEffect(() => {
     let getAllUsers = async () => {
       let response = await axios.get(
-        "http://localhost:5001/products"
+        "https://react-project-12.herokuapp.com/products"
       );
 
       setUsers(response.data.data);
@@ -37,7 +37,7 @@ function Product() {
 
     axios({
       method: "post",
-      url: "http://localhost:5001/product",
+      url: "https://react-project-12.herokuapp.com/product",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
@@ -124,7 +124,7 @@ function Product() {
               <p ><span className='price'>{eachProduct.price}</span><span>pkr</span></p>
               <button onClick={() => {
                 axios({
-                 url: `http://localhost:5001/product/${eachProduct._id}`,
+                 url: `https://react-project-12.herokuapp.com/product/${eachProduct._id}`,
                    
                   method: "delete",
 

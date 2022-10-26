@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     let getAllUsers = async () => {
-      let response = await axios.get("http://localhost:5001/users");
+      let response = await axios.get("https://react-project-12.herokuapp.com/users");
       setUsers(response.data.data);
     };
     getAllUsers();
@@ -34,7 +34,7 @@ function App() {
 
     axios({
       method: "post",
-      url: "http://localhost:5001/signup",
+      url: "https://react-project-12.herokuapp.com/signup",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
@@ -120,7 +120,7 @@ function App() {
             <button
               onClick={() => {
                 axios({
-                  url: `http://localhost:5001/user/${eachUser._id}`,
+                  url: `https://react-project-12.herokuapp.com/user/${eachUser._id}`,
                   method: "delete",
                 })
                   .then(function (response) {
