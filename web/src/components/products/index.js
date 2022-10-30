@@ -59,7 +59,7 @@ function Product() {
       <div className="form">
         <form onSubmit={producthandler}>
           <h1>PRODUCT FORM</h1>
-          Name:{" "}
+          Name:{" "} 
           <input
             name="name"
             type="text"

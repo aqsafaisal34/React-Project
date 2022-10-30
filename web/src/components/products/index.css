@@ -43,7 +43,7 @@ button{
     flex-wrap: wrap;
     width: 80%;
     margin: auto;
-    justify-content: space-between;
+    /* justify-content: space-between; */
    
 }
 .product{
@@ -77,6 +77,13 @@ button{
 .description{
     margin: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+    .form {
+      width:100%;
+      
+    }
+  }
 
 
 
